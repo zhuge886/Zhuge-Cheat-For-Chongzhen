@@ -1,0 +1,50 @@
+{
+  "name": "zhuge-cheat-for-chongzhen",
+  "version": "0.1.0",
+  "description": "Windows GUI BYOK proxy for 历史模拟器：崇祯 with configurable prompt capture and conditional override keyword.",
+  "main": "src/main.js",
+  "author": "zhuge886",
+  "private": false,
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "dependencies": {
+    "undici": "latest"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.zhuge.chongzhen.byokproxy",
+    "productName": "Zhuge Cheat for Chongzhen",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
