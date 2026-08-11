@@ -123,6 +123,7 @@ API Key 不会写进仓库，也不会写入 `ChongZhen_BYOK_Capture`。GUI 保�
 ```text
 http://127.0.0.1:8787
 ```
+<img width="1575" height="1015" alt="image" src="https://github.com/user-attachments/assets/976eb8d2-13a3-449d-9dfe-662c07c46b15" />
 
 游戏里的 API Key 只需满足游戏自身“非空”校验即可；真正的上游 Key 由本程序保存并在转发时加入请求。
 
