@@ -67,6 +67,14 @@ dist\
 ```powershell
 npm start
 ```
+<img width="1059" height="981" alt="image" src="https://github.com/user-attachments/assets/70063f4c-b378-4954-bf6f-a6905109a00c" />
+<img width="1059" height="1015" alt="image" src="https://github.com/user-attachments/assets/a15017d0-57a5-4f5c-b943-95b1d189fba6" />
+<img width="2485" height="1125" alt="image" src="https://github.com/user-attachments/assets/64d26bc6-895b-4bee-a50e-1c2f40a8a01b" />
+<img width="1575" height="1015" alt="image" src="https://github.com/user-attachments/assets/976eb8d2-13a3-449d-9dfe-662c07c46b15" />
+<img width="1395" height="911" alt="image" src="https://github.com/user-attachments/assets/b991f1c3-1f04-4e92-aab3-b2fc659db4b9" />
+<img width="1161" height="1075" alt="image" src="https://github.com/user-attachments/assets/3c398c0e-4e6f-4246-95e8-6d5481498ce1" />
+
+
 
 ## 第一次配置
 
@@ -123,8 +131,6 @@ API Key 不会写进仓库，也不会写入 `ChongZhen_BYOK_Capture`。GUI 保�
 ```text
 http://127.0.0.1:8787
 ```
-<img width="1575" height="1015" alt="image" src="https://github.com/user-attachments/assets/976eb8d2-13a3-449d-9dfe-662c07c46b15" />
-
 游戏里的 API Key 只需满足游戏自身“非空”校验即可；真正的上游 Key 由本程序保存并在转发时加入请求。
 
 ## 强制执行关键词
