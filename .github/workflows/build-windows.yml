@@ -29,7 +29,7 @@ jobs:
         run: npm run check
 
       - name: Build installer and portable EXE
-        run: npm run dist
+        run: npm run dist -- --publish never
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
