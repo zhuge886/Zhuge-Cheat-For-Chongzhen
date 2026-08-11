@@ -7,19 +7,18 @@
   "private": false,
   "scripts": {
     "start": "electron .",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/proxy.js && node --check src/config-manager.js && node --check src/rule-engine.js && node --check src/renderer/renderer.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --win nsis portable"
   },
-  "dependencies": {
-    "undici": "latest"
-  },
   "devDependencies": {
-    "electron": "latest",
+    "electron": "^43.2.0",
     "electron-builder": "latest"
   },
   "build": {
     "appId": "com.zhuge.chongzhen.byokproxy",
     "productName": "Zhuge Cheat for Chongzhen",
+    "artifactName": "Zhuge-Cheat-For-Chongzhen-${version}-${arch}.${ext}",
     "files": [
       "src/**/*",
       "package.json"
