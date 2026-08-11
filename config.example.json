@@ -1,0 +1,10 @@
+{
+  "upstreamBase": "https://api.deepseek.com",
+  "logDir": "C:\\Users\\<你>\\Desktop\\ChongZhen_BYOK_Capture",
+  "port": 8787,
+  "forceKeyword": "zhuge",
+  "overrideEnabled": true,
+  "captureEnabled": true,
+  "disableThinking": true,
+  "modelOverride": ""
+}
