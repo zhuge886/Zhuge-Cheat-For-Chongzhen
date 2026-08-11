@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zhuge Cheat for Chongzhen</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">BYOK LOCAL PROXY</p>
+        <h1>Zhuge Cheat for Chongzhen</h1>
+        <p class="sub">《历史模拟器：崇祯》BYOK 本地代理、Prompt 捕获与条件式规则增强工具。</p>
+      </div>
+      <div id="statusBadge" class="status stopped"><span></span><b>已停止</b></div>
+    </header>
+
+    <section class="panel">
+      <h2>上游模型</h2>
+      <div class="grid two">
+        <label>
+          <span>API Base URL</span>
+          <input id="upstreamBase" type="url" placeholder="https://api.deepseek.com" autocomplete="off" />
+        </label>
+        <label>
+          <span>模型覆盖（可选）</span>
+          <input id="modelOverride" type="text" placeholder="留空则使用游戏传入的 model" autocomplete="off" />
+        </label>
+      </div>
+      <label>
+        <span>API Key</span>
+        <div class="inline">
+          <input id="apiKey" type="password" placeholder="未保存" autocomplete="new-password" />
+          <button id="toggleKey" class="secondary small" type="button">显示</button>
+        </div>
+        <small id="apiKeyHint">API Key 仅保存在本机，并使用 Electron safeStorage 加密。</small>
+      </label>
+    </section>
+
+    <section class="panel">
+      <h2>代理与强制规则</h2>
+      <div class="grid two">
+        <label>
+          <span>本地代理端口</span>
+          <input id="port" type="number" min="1" max="65535" value="8787" />
+        </label>
+        <label>
+          <span>强制执行关键词</span>
+          <input id="forceKeyword" type="text" value="zhuge" autocomplete="off" />
+          <small>同时识别英文冒号和中文冒号，例如 zhuge: / zhuge：</small>
+        </label>
+      </div>
+      <div class="checks">
+        <label class="check"><input id="overrideEnabled" type="checkbox" checked /><span>启用条件式强制规则</span></label>
+        <label class="check"><input id="disableThinking" type="checkbox" checked /><span>关闭 Thinking（兼容 tool_choice）</span></label>
+        <label class="check"><input id="captureEnabled" type="checkbox" checked /><span>保存原始 BYOK 请求</span></label>
+      </div>
+      <div class="callout">
+        <b>普通命令不受影响。</b> 只有当前请求中出现“关键词 + 冒号”时才注入增强规则；服务端真实字段、主键、范围和业务校验仍然有效。
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Prompt 捕获</h2>
+      <label>
+        <span>保存目录</span>
+        <div class="inline">
+          <input id="logDir" type="text" autocomplete="off" />
+          <button id="chooseDir" class="secondary" type="button">选择目录</button>
+          <button id="openDir" class="secondary" type="button">打开</button>
+        </div>
+      </label>
+    </section>
+
+    <section class="panel actions-panel">
+      <div>
+        <span class="muted">游戏 BYOK Base URL</span>
+        <code id="localBase">http://127.0.0.1:8787</code>
+      </div>
+      <div class="actions">
+        <button id="saveBtn" class="secondary" type="button">保存配置</button>
+        <button id="startBtn" class="primary" type="button">启动代理</button>
+        <button id="stopBtn" class="danger" type="button" disabled>停止代理</button>
+      </div>
+    </section>
+
+    <section class="panel log-panel">
+      <div class="log-head">
+        <h2>运行日志</h2>
+        <button id="clearLog" class="ghost" type="button">清空</button>
+      </div>
+      <pre id="logBox">等待启动代理……</pre>
+    </section>
+  </main>
+  <script src="./renderer.js"></script>
+</body>
+</html>
